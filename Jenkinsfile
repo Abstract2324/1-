@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                bat 'make'
+                archiveArtifacts artifacts: '**/target/*.epf', fingerprint: true
             }
         }
         stage('Test') {
